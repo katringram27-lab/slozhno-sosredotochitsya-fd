@@ -11,29 +11,45 @@
   */
   --text-color: #353430;
   --sub-text-color: #353430;
-  --title-color: #FFC2E6;
-  --accent-color: #FF8DCB;
+  --title-color: #ffc2e6;
+  --accent-color: #ff8dcb;
   --header-menu-hover-color: rgb(50 49 45 / 0.4);
   --background-image: url(../images/cover-image-light.png);
-  --background-color: #FFF1F7;
+  --background-color: #fff1f7;
 }
 
-.page.theme-light .header__decorated-element {
+.theme-light .header__decorated-element {
   display: none;
 }
 
-.page.theme-light .header__title {
-  color: #FFC2E6;
+.theme-light .header__title {
+  color: #ffc2e6;
+}
+
+.theme-light .header__theme-menu-list {
+  color: #353430;
+}
+
+.theme-light .header__theme-menu-button_active {
+  border: 1px solid var(--header-menu-hover-color);
+}
+
+.theme-light .header__theme-menu-button:focus {
+  border-bottom: 1px solid var(--header-menu-hover-color);
+}
+
+.theme-light .question__section-title {
+  color: #353430;
 }
 
 @media (prefers-color-scheme: light) {
- :root {
+  :root {
   --text-color: #353430;
   --sub-text-color: #353430;
-  --title-color: #FFC2E6;
-  --accent-color: #FF8DCB;
+  --title-color: #ffc2e6;
+  --accent-color: #ff8dcb;
   --header-menu-hover-color: rgb(50 49 45 / 0.4);
   --background-image: url(../images/cover-image-light.png);
-  --background-color: #FFF1F7;
+  --background-color: #fff1f7;
   }
 }

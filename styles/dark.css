@@ -4,17 +4,17 @@
   переключая тему
 */
 
-  /* сохраните этот селектор в приведённом виде.
+/* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
 
 :root.theme-dark {
---text-color: #F1B2CE;
---sub-text-color: #000028;
---title-color: #FF0070;
---accent-color: #FF0070;
---header-menu-hover-color: rgb(255 0 112 / 0.4);
---background-image: url(../images/cover-image-dark.png);
---background-color: #000028;
+  --text-color: #f1b2ce;
+  --sub-text-color: #000028;
+  --title-color: #ff0070;
+  --accent-color: #ff0070;
+  --header-menu-hover-color: rgb(255 0 112 / 0.4);
+  --background-image: url(../images/cover-image-dark.png);
+  --background-color: #000028;
 }
