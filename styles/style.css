@@ -1,7 +1,5 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-image: var(--background-image, url(../images/cover-image-dark.png));
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -9,8 +7,8 @@
   background-color: var(--background-color, #000028);
   color: var(--text-color, #f1b2ce);
   margin: 0 auto;
-  font-family: var(--font, monospace);
-  font-size: var(--font-size);
+  font-family: var(--font, 'IBM Plex Mono');
+  font-size: var(--font-size, 18px);
   font-weight: 400;
   line-height: 23.4px;
   display: flex;
@@ -33,10 +31,12 @@
     'question question';
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr min-content 1fr;
+  height: 100vh;
+  min-height: 668px;
 }
 
 .header .header__title {
-  text-shadow: 4px 4px 0 #ff0070;
+  text-shadow: 4px 4px 0 var(--title-color-shadow, #ff0070);
   grid-area: logo;
   align-self: center;
   color: var(--title-color, #db00ff);
@@ -61,18 +61,17 @@
   grid-area: nav;
   align-self: center;
   justify-self: end;
-  color: var(--accent-color, #ff0070);
+  color: var(--navigation-color, #353430);
 }
 
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0px 5px 3px 0px;
 }
 
 .header__theme-menu-buttton {
-  inline-size: 70px;
-  block-size: 26px;
   padding: 0px 13px 0px 13px;
   background-color: transparent;
   border: none;
@@ -83,7 +82,7 @@
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--accent-color, #ff0070);
+  outline: 1px solid var(--button-active-color, #FF0070);
   pointer-events: none;
 }
 
@@ -92,12 +91,11 @@
 }
 
 .header__theme-menu-button:focus {
-  border-bottom: 1px solid var(--accent-color, #ff0070);
   outline: none;
 }
 
 .header__theme-menu-button:focus-visible {
-  border-block-end: 1px solid var(--accent-color, #ff0070);
+  border-bottom: 1px solid var(--button-focus-color, #FF0070);
   outline: none;
 }
 
@@ -119,28 +117,26 @@
 .decorated-zone::before {
   inset-block-start: 10px;
   inset-inline-end: 10px;
-  border-inline-end: 1px solid var(--accent-color, #ff0070);
-  border-block-start: 1px solid var(--accent-color, #ff0070);
+  border-inline-end: 1px solid var(--decorated-zone-color, #FF0070);
+  border-block-start: 1px solid var(--decorated-zone-color, #FF0070);
 }
 
 .decorated-zone::after {
   inset-block-end: 10px;
   inset-inline-start: 10px;
-  border-inline-start: 1px solid var(--accent-color, #ff0070);
-  border-block-end: 1px solid var(--accent-color, #ff0070);
+  border-inline-start: 1px solid var(--decorated-zone-color, #FF0070);
+  border-block-end: 1px solid var(--decorated-zone-color, #FF0070);
 }
-
-/*REC*/
 
 .header__decorated-element {
   position: absolute;
-  display: flex;
+  display: var(--rec-element, flex);
   color: var(--accent-color, #ff0070);
   align-items: center;
   inset-inline-end: 10px;
   inset-block-start: 10px;
 }
-/* circle */
+
 .header__decorated-element::after {
   content: '';
   background-color: var(--accent-color, #ff0070);
@@ -152,45 +148,36 @@
   box-shadow: 0px 0px 4px 3px var(--accent-color, #ff0070);
 }
 
-/*Заголовки всех секций*/
-
 .question__section-title {
-  color: var(--accent-color);
-  font-size: var(--font-size);
+  color: var(--section-title-color, #FF0070);
+  font-size: var(--font-size, 18px);
   line-height: 23.4px;
   font-weight: bold;
 }
 
-/*текст всех секций*/
-
 .question__section-answer-text {
-  font-size: var(--font-size);
-  color: var(--text-color);
+  font-size: var(--font-size, 18px);
+  color: var(--text-color, #F1B2CE);
 }
 
-/* Ссылки */
-
 .question__section-answer-link {
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
   text-decoration: none;
 }
 
 .question__section-answer-link:hover {
-  border-bottom: 1px solid var(--text-color);
+  border-bottom: 1px solid var(--text-color, #F1B2CE);
 }
 
 .question__section-answer-link:focus {
-  outline: 1px solid var(--text-color);
-  border: none;
+  outline: none;
 }
 
 .question__section-answer-link:focus-visible {
-  outline: 1px solid var(--text-color);
+  outline: 1px solid var(--text-color, #F1B2CE);
 }
 
-/* Первая секция с вопросами*/
-
-.question__section__one {
+.question__section__reasons {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -207,64 +194,57 @@
   padding-block-end: 10px;
 }
 
-/* Вторая секция с вопросами*/
-
-.question__section__two {
+.question__section__factors {
   display: flex;
   flex-direction: column;
   padding-block-start: 50px;
   padding-block-end: 50px;
 }
 
-.question__section-title-two {
+.question__section-title-factors {
   min-inline-size: 355px;
 }
 
-.question__section-answer-title-two {
+.question__section-answer-title-factors {
   margin-block-start: 20px;
 }
 
-.question__section-answer-two-container {
+.question__section-answer-factors-container {
   display: flex;
   flex-direction: column;
 }
 
-.question__section-answer-two {
+.question__section-answer-factors {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Третья секция с вопросами */
-
-.question__section__three {
+.question__section__advice {
   display: flex;
   flex-direction: column;
   padding-block-end: 50px;
   gap: 20px;
 }
 
-.question__section-answer-three {
+.question__section-answer-advice {
   gap: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.question__section-answer-three-container {
+.question__section-answer-advice-container {
   display: flex;
   flex-direction: column;
 }
 
-.question__section-answer-text-three {
+.question__section-answer-text-advice {
   padding-block-start: 10px;
 }
 
 .question__section-answer-subtitle {
-  display: grid;
-  grid-template-columns: 1;
   font-weight: 400;
 }
-/* Секция с картинками */
 
 .question__section__image {
   display: grid;
@@ -284,22 +264,22 @@
   object-fit: cover;
   object-position: center;
 }
-/* Подвал */
 
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  min-height: 668px;
 }
 
 .footer .footer__title {
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
   color: var(--title-color, #db00ff);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 82.5%;
 }
 
-/* Медиа запрос на 768px*/
 @media (width >= 768px) {
   .main {
     padding: 0px 20px 0px 20px;
@@ -341,7 +321,6 @@
   }
 
   .header__theme-menu-list {
-    display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
@@ -353,22 +332,22 @@
 
   .header__text {
     max-inline-size: 364px;
-    max-block-size: 117px;
   }
 
-  .question__section__one {
+  .question__section__reasons {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 20px;
     padding: 60px 0px 0px 0px;
   }
 
-  .question__section-answer-two-container {
+  .question__section-answer-factors-container,
+  .question__section__advice-container {
     display: flex;
     flex-direction: column;
   }
 
-  .question__section-title-two {
+  .question__section-title-factors {
     max-inline-size: 236px;
     grid-row: 2;
     grid-column: span 3;
@@ -377,16 +356,11 @@
     padding-block-start: 30px;
   }
 
-  .question__section__three {
+  .question__section__advice {
     display: grid;
     grid-template-columns: 1fr 2fr;
     padding-block-end: 0px;
     padding-block-start: 30px;
-  }
-
-  .question__section__three-container {
-    display: flex;
-    flex-direction: column;
   }
 
   .question__section__image {
@@ -440,7 +414,6 @@
   }
 }
 
-/*Медиа запрос на 1024 px*/
 @media (width >= 1024px) {
   .header__theme-menu {
     align-self: start;
@@ -449,41 +422,42 @@
 
   .header__theme-menu-list {
     flex-direction: row;
+    gap: 36px;
   }
 
   .header .header__title {
-    font-size: 157px;
-  }
-
-  .header__title {
-    line-height: 82.5%;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__text {
     max-inline-size: 491px;
-    max-block-size: 71px;
   }
 
-  .question__section-title-two {
+  .question__section__reasons,
+  .question__section__advice {
     display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+  }
+
+  .question__section-title-factors {
     max-inline-size: 315px;
     grid-template-columns: 1fr;
   }
 
-  .question__section-answer-two-container {
+  .question__section-answer-factors-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
   }
 
-  .question__section-answer-title-two {
+  .question__section-answer-title-factors {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
   }
 
   .footer .footer__title {
-    font-size: 157px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
